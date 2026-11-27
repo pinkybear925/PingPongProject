@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <vector>
 #include <unistd.h>
+#include <fstream>
 
 using namespace std;
 
@@ -44,9 +45,9 @@ int main(){
     
     while(true){
         char buffer[1024]{};
-        ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);\
+        ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
+        string s(buffer, bytes_received);
         if (bytes_received > 0){
-            string s(buffer, bytes_received);
             cout << "Client's message:\n" << s << "\n";
         }
         else if(bytes_received == 0){
@@ -57,9 +58,14 @@ int main(){
             perror("recv");
             break;
         }
+
+        ofstream file("history.txt", ios::app);     // Записываем историю сообщения клиента
+        file << "Client's meesage: " << s << "\n";
+           
         string message;
-        cout << "Send a meesage:\n";
+        cout << "Send a message:\n";
         getline(cin, message);
+        file << "Server's message: " << message << "\n";   // Записываем историю сообщения сервера
         send(client_socket, message.data(), message.size(),0);
     }
     close(client_socket);

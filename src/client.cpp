@@ -4,6 +4,7 @@
 #include <arpa/inet.h>
 #include <string>
 #include <unistd.h>
+#include <fstream>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ int main(){
         char buffer[1024]{};
         ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer)-1,0);
         if (bytes_received > 0) {
-        cout << "Sthvers message:\n" << string(buffer, bytes_received) << endl;
+        cout << "Servers message:\n" << string(buffer, bytes_received) << endl;
         }
         else if (bytes_received == 0) {
             cout << "Server disconnected\n";
@@ -42,6 +43,7 @@ int main(){
             perror("recv");
             break;
         }
+        
         }
     close(client_socket);
 }
