@@ -6,8 +6,16 @@
 #include <vector>
 #include <unistd.h>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
+
+void log(ostream& out, const string& msg) {
+    time_t t = time(nullptr);
+    char buf[20];
+    strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", localtime(&t));
+    out << "[" << buf << "] " << msg << "\n";
+}
 
 int main(){
 
@@ -45,10 +53,12 @@ int main(){
     
     while(true){
         char buffer[1024]{};
+        ofstream file("history.txt", ios::app);
         ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
         string s(buffer, bytes_received);
         if (bytes_received > 0){
             cout << "Client's message:\n" << s << "\n";
+            log(file, "Client's message: " + s);
         }
         else if(bytes_received == 0){
             cout << "Client disconnected!!" << "\n";
@@ -57,15 +67,15 @@ int main(){
         else{
             perror("recv");
             break;
-        }
-
-        ofstream file("history.txt", ios::app);     // Записываем историю сообщения клиента
-        file << "Client's meesage: " << s << "\n";
+        }                                     
            
         string message;
         cout << "Send a message:\n";
         getline(cin, message);
-        file << "Server's message: " << message << "\n";   // Записываем историю сообщения сервера
+        if(message=="End"){
+            break;
+        }
+        log(file, "Server's message: " + message);
         send(client_socket, message.data(), message.size(),0);
     }
     close(client_socket);

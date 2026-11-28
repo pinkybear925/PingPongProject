@@ -2,3 +2,43 @@ Client's meesage: hi
 Server's message: hello
 Client's meesage: ggodbye
 Server's message: bye
+[2026-11-28 02:54:56] Client's message: hi!
+Client's meesage: hi!
+Server's message: Hello
+[2026-11-28 02:54:59] Server's message: Hello
+[2026-11-28 02:55:06] Client's message: How a u?
+Client's meesage: How a u?
+Server's message: normal
+[2026-11-28 02:55:10] Server's message: normal
+[2026-11-28 02:55:18] Client's message: okey
+Client's meesage: okey
+Server's message: and u
+[2026-11-28 02:55:21] Server's message: and u
+[2026-11-28 02:55:25] Client's message: i am too
+Client's meesage: i am too
+Server's message: wow
+[2026-11-28 02:55:32] Server's message: wow
+[2026-11-28 02:58:40] Client's message: new
+Client's meesage: new
+Server's message: d
+[2026-11-28 02:58:41] Server's message: d
+[2026-11-28 02:58:46] Client's message: so
+Client's meesage: so
+Server's message: spoon
+[2026-11-28 02:58:49] Server's message: spoon
+[2026-11-28 02:58:52] Client's message: dota
+Client's meesage: dota
+Server's message: 2
+[2026-11-28 02:58:53] Server's message: 2
+[2026-11-28 02:58:57] Client's message: cs
+Client's meesage: cs
+Server's message: 2
+[2026-11-28 02:58:58] Server's message: 2
+[2026-11-28 03:00:08] Client's message: hii
+[2026-11-28 03:00:10] Server's message: hwlof
+[2026-11-28 03:00:12] Client's message: off
+[2026-11-28 03:00:16] Server's message: a new commit
+[2026-11-28 03:00:20] Client's message: yew
+[2026-11-28 03:00:22] Server's message: ho
+[2026-11-28 03:00:26] Client's message: Exitt
+[2026-11-28 03:00:28] Server's message: f

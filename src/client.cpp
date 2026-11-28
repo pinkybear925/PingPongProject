@@ -29,6 +29,9 @@ int main(){
     while(true){
         cout << "Send a message:\n";
         getline(cin, message);
+        if(message=="Exit"){
+            break;
+        }
         send(client_socket, message.data(),message.size(),0);
         char buffer[1024]{};
         ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer)-1,0);
